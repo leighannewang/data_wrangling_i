@@ -118,3 +118,23 @@ Data summary
 ``` r
 # you can use view(litters_df) to view but it opens up a new window, so try and use in the console only not hte r markdown file
 ```
+
+## Options to read\_scv
+
+check out ‘?read\_csv()’ for more information
+
+``` r
+litters_df = read_csv("./data_import_examples/FAS_litters.csv", skip = 10, col_names = FALSE)
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   X1 = col_character(),
+    ##   X2 = col_character(),
+    ##   X3 = col_double(),
+    ##   X4 = col_double(),
+    ##   X5 = col_double(),
+    ##   X6 = col_double(),
+    ##   X7 = col_double(),
+    ##   X8 = col_double()
+    ## )

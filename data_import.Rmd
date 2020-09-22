@@ -31,3 +31,11 @@ skimr::skim(litters_df)
 # you can use view(litters_df) to view but it opens up a new window, so try and use in the console only not hte r markdown file
 ```
 
+## Options to read_scv
+
+check out '?read_csv()' for more information
+```{r}
+litters_df = read_csv("./data_import_examples/FAS_litters.csv", skip = 10, col_names = FALSE)
+```
+
+
