@@ -332,3 +332,11 @@ litters_readr
 ``` r
 #use readr because base is just too cumbersome 
 ```
+
+## Exporting data
+
+Export mlb sub-table
+
+``` r
+write_csv(mlb_df, "./data_import_examples/mlb_subtable.csv")
+```
