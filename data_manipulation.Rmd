@@ -92,6 +92,17 @@ mutate( #can conain multiple functions
   group = str_to_lower(group)) # change name of variable group
 ```
 
+## 'arrange'
+
+```{r}
+arrange(litters_df, pups_born_alive) # does it in ascending order
+```
+
+```{r}
+arrange(litters_df, pups_born_alive, gd0_weight) #ascending order of pups born alive and then within that, ascending order of gd0 weight
+```
+
+
 
 
 
