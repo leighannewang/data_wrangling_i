@@ -17,3 +17,40 @@ library(tidyverse)
     ## -- Conflicts ----------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
+
+## ‘pivot\_longer’
+
+``` r
+pulse_data =
+  haven::read_sas("./data_import_examples/public_pulse_data.sas7bdat") %>% 
+  janitor::clean_names()
+```
+
+Wide Format to long format
+
+``` r
+pulse_data_tidy =
+  pulse_data %>% 
+  pivot_longer(
+    bdi_score_bl:bdi_score_12m,
+    names_to = "visit",
+    names_prefix = "bdi_score",
+    values_to = "bdi"
+  )
+```
+
+rewrite, combine, and extend (to add a mutate)
+
+``` r
+pulse_data =
+  haven::read_sas("./data_import_examples/public_pulse_data.sas7bdat") %>%
+  janitor::clean_names() %>% 
+  pivot_longer(
+    bdi_score_bl:bdi_score_12m,
+    names_to = "visit",
+    names_prefix = "bdi_score",
+    values_to = "bdi"
+  ) %>% 
+  relocate(id, visit) %>% 
+  mutate(visit = recode(visit, "bl" = "00m"))
+```
