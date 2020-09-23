@@ -8,3 +8,48 @@ output: github_document
 ```{r setup}
 library(tidyverse)
 ```
+## Load in FAS litters data
+
+```{r}
+litters_df = read_csv("./data_import_examples/FAS_litters.csv")
+litters_df = janitor::clean_names(litters_df)
+```
+
+## 'select'
+
+Choose some columns and not others
+
+```{r}
+select(litters_df, group, litter_number)
+```
+
+```{r}
+select(litters_df, group:litter_number)
+```
+
+```{r}
+select(litters_df, -litter_number) #remove litter number column
+```
+
+Renaming columns
+
+```{r}
+select(litters_df, GROUP = group) #rename group to GROUP
+```
+
+```{r}
+rename(litters_df, GROUP = group)
+```
+
+Select helpers
+
+```{r}
+select(litters_df, starts_with("gd"))
+```
+
+```{r}
+#relocate a column to the first column area
+select(litters_df, litter_number, everything())
+relocate(litters_df, litter_number)
+```
+
