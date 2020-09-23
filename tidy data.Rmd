@@ -1,0 +1,11 @@
+---
+title: "tidy data"
+author: "Leighanne Wang"
+date: "9/22/2020"
+output: github_document
+---
+
+```{r setup}
+library(tidyverse)
+```
+
